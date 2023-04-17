@@ -34,7 +34,6 @@ $min-sidebar-width: 81px;
   .sidebar-header {
     width: 100%;
     height: 100px;
-    padding: 0px 70px;
     animation-name: logoopen;
     animation-duration: 1s;
     animation-delay: 0s;
@@ -53,8 +52,10 @@ $min-sidebar-width: 81px;
 
     .brand-logo {
       width: 70px;
-      height: 25px;
+      height: 20px;
       cursor: pointer;
+      margin-inline: auto;
+      display: block;
     }
   }
 
@@ -94,9 +95,13 @@ $min-sidebar-width: 81px;
           color: $sidebar_text_color;
 
           .sidebar-icon {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             filter: $sidebar_icons_color;
+          }
+
+          span {
+            font-size: 14px;
           }
         }
 
@@ -113,18 +118,17 @@ $min-sidebar-width: 81px;
   }
 
   .sidebar-footer {
-    width: calc($sidebar-width - 30px);
     position: relative;
     bottom: 0;
-    @include flexFn(end, start, column);
-    padding: 10px 15px;
     min-height: 100px;
     height: 100px;
+    width: 100%;
     animation-name: profileopen;
     animation-duration: 1s;
     animation-delay: 0.1s;
     animation-fill-mode: forwards;
     opacity: 0;
+    padding-left: 15px;
 
     @keyframes profileopen {
       from {
@@ -138,12 +142,14 @@ $min-sidebar-width: 81px;
 
     .profile {
       @include flexFn(start, center, row);
-      gap: 0px 20px;
+      gap: 0px 10px;
       color: $sidebar_text_color;
+      position: absolute;
+      bottom: 0px;
 
       .profile-image {
-        width: 45px;
-        height: 45px;
+        width: 35px;
+        height: 35px;
         border-radius: 50%;
         overflow: hidden;
         @include flexFn(center, center, row);
@@ -163,18 +169,18 @@ $min-sidebar-width: 81px;
           position: relative;
 
           .user-name {
-            font-size: 16px;
+            font-size: 14px;
             color: $sidebar_profile_name;
           }
 
           .user-role {
-            font-size: 12px;
+            font-size: 10px;
             white-space: nowrap;
           }
         }
 
         .logout-text {
-          font-size: 16px;
+          font-size: 14px;
           cursor: pointer;
           font-weight: 600;
         }
@@ -219,7 +225,6 @@ $min-sidebar-width: 81px;
     width: 100%;
     height: 100px;
     overflow: hidden;
-    padding: 0px 6px;
     animation-name: logo;
     animation-duration: 1s;
     animation-delay: 0s;
@@ -237,8 +242,10 @@ $min-sidebar-width: 81px;
     }
 
     .brand-logo {
-      width: 40px;
-      height: 35px;
+      width: 35px;
+      height: 30px;
+      margin-inline: auto;
+      display: block;
     }
   }
 
@@ -284,8 +291,8 @@ $min-sidebar-width: 81px;
           width: 100%;
 
           .sidebar-icon {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             filter: $sidebar_icons_color;
           }
 
@@ -332,13 +339,12 @@ $min-sidebar-width: 81px;
   }
 
   .sidebar-footer {
-    width: calc($min-sidebar-width - 10px);
     position: relative;
     bottom: 0;
-    @include flexFn(end, start, column);
-    padding: 10px 4px;
+    padding: 0px 4px;
     min-height: 100px;
     height: 100px;
+    width: 100%;
     color: $sidebar_text_color;
     animation-name: profileclose;
     animation-duration: 1s;
@@ -357,14 +363,17 @@ $min-sidebar-width: 81px;
     }
 
     .profile {
-      @include flexFn(start, start, column);
+      position: absolute;
+      bottom: 0;
       gap: 0px 20px;
 
       .profile-image {
-        width: 40px;
-        height: 40px;
+        width: 35px;
+        height: 35px;
         border-radius: 50%;
         overflow: hidden;
+        display: block;
+        margin-inline: auto;
         @include flexFn(center, center, row);
 
         img {
