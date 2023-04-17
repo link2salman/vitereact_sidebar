@@ -1,0 +1,9 @@
+@import "./variables.scss";
+@import "./reset.scss";
+@import "./services.scss";
+@import "components/index.scss";
+
+body {
+    width: 100vw;
+    height: 100vh;
+}

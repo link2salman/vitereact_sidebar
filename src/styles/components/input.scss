@@ -1,0 +1,19 @@
+.app-input-component {
+    .input {
+        border: 2px solid $topbar_input_color;
+        padding: 10px 15px;
+        border-radius: 10px;
+        background-color: $topbar_input_color;
+        font-size: small;
+        font-weight: bold;
+        text-align: left;
+        color: $topbar_input_placeholder_color;
+        width: 350px;
+
+        &::placeholder {
+            color: $topbar_input_placeholder_color;
+            text-align: center;
+        }
+    }
+
+}

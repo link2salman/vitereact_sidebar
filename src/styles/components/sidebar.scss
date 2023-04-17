@@ -1,0 +1,392 @@
+$sidebar-width: 240px;
+$min-sidebar-width: 81px;
+
+.sidebar {
+  @include flexFn(start, start, column);
+  width: $sidebar-width;
+  height: 100vh;
+  background-color: $sidebar_background_color;
+  padding: 20px 15px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+
+  .toggle-controller {
+    position: absolute;
+    top: 15px;
+    right: -13px;
+    width: 25px;
+    height: 25px;
+    overflow: hidden;
+    transform: rotate(180deg);
+    background-color: $toggler_background_color;
+    border-radius: 50%;
+    padding: 5px;
+    @include flexFn(center, center, row);
+    cursor: pointer;
+
+    .toggle-icon {
+      width: 20px;
+      height: 20px;
+      filter: $sidebar_icons_color;
+    }
+  }
+
+  .sidebar-header {
+    width: 100%;
+    height: 100px;
+    padding: 0px 70px;
+    animation-name: logoopen;
+    animation-duration: 1s;
+    animation-delay: 0s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+
+    @keyframes logoopen {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .brand-logo {
+      width: 70px;
+      height: 25px;
+      cursor: pointer;
+    }
+  }
+
+  .sidebar-menu {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    .sidebar-menu-list {
+      @include flexFn(start, start, column);
+
+      li {
+        width: 100%;
+        line-height: 50px;
+        height: 50px;
+        padding-left: 15px;
+        border-radius: 3px;
+        white-space: nowrap;
+
+        &:hover {
+          background-color: $sidebar_bg_hover;
+          color: $sidebar_text_hover;
+        }
+
+
+        &:hover a img {
+          filter: $sidebar_icons_hover;
+        }
+
+        &:hover a span {
+          color: $sidebar_text_hover;
+        }
+
+        a {
+          @include flexFn(start, center, row);
+          gap: 0px 16px;
+          color: $sidebar_text_color;
+
+          .sidebar-icon {
+            width: 20px;
+            height: 20px;
+            filter: $sidebar_icons_color;
+          }
+        }
+
+        .hover-effect {
+          display: none;
+        }
+      }
+
+      .active {
+        background-color: $sidebar_bg_hover;
+        color: $sidebar_text_hover;
+      }
+    }
+  }
+
+  .sidebar-footer {
+    width: calc($sidebar-width - 30px);
+    position: relative;
+    bottom: 0;
+    @include flexFn(end, start, column);
+    padding: 10px 15px;
+    min-height: 100px;
+    height: 100px;
+    animation-name: profileopen;
+    animation-duration: 1s;
+    animation-delay: 0.1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+
+    @keyframes profileopen {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .profile {
+      @include flexFn(start, center, row);
+      gap: 0px 20px;
+      color: $sidebar_text_color;
+
+      .profile-image {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        overflow: hidden;
+        @include flexFn(center, center, row);
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .profile-description {
+        @include flexFn(start, start, column);
+        gap: 6px 0px;
+
+        .profile-detail {
+          @include flexFn(start, center, row);
+          gap: 6px;
+          position: relative;
+
+          .user-name {
+            font-size: 16px;
+            color: $sidebar_profile_name;
+          }
+
+          .user-role {
+            font-size: 12px;
+            white-space: nowrap;
+          }
+        }
+
+        .logout-text {
+          font-size: 16px;
+          cursor: pointer;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+.close-sidebar {
+  @include flexFn(start, start, column);
+  background-color: $sidebar_background_color;
+  width: $min-sidebar-width;
+  height: 100vh;
+  padding: 20px 15px;
+  position: relative;
+  transition: all 0.2s linear;
+
+  .toggle-controller {
+    position: absolute;
+    top: 15px;
+    right: -13px;
+    width: 25px;
+    height: 25px;
+    overflow: hidden;
+    background-color: $toggler_background_color;
+    border-radius: 50%;
+    padding: 5px;
+    @include flexFn(center, center, row);
+    cursor: pointer;
+
+    .toggle-icon {
+      width: 20px;
+      height: 20px;
+      filter: $sidebar_icons_color;
+    }
+  }
+
+  .sidebar-header {
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    padding: 0px 6px;
+    animation-name: logo;
+    animation-duration: 1s;
+    animation-delay: 0s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+
+    @keyframes logo {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 35px;
+    }
+  }
+
+  .sidebar-menu {
+    width: 100%;
+    height: 100%;
+
+    .sidebar-menu-list {
+      @include flexFn(start, start, column);
+      position: relative;
+
+      li {
+        height: 50px;
+        line-height: 50px;
+        @include flexFn(start, center, row);
+        width: 100%;
+        border-radius: 3px;
+
+        &:hover {
+          background-color: $sidebar_bg_hover;
+          color: $sidebar_text_hover;
+        }
+
+        &:hover a img {
+          filter: $sidebar_icons_hover;
+        }
+
+        &:active {
+          background-color: $sidebar_bg_hover;
+          color: $sidebar_text_hover;
+        }
+
+        &:active a img {
+          filter: $sidebar_icons_hover;
+        }
+
+        a {
+          @include flexFn(start, center, row);
+          gap: 0px 16px;
+          color: $sidebar_text_color;
+          padding: 0px 15px;
+          height: 100%;
+          width: 100%;
+
+          .sidebar-icon {
+            width: 20px;
+            height: 20px;
+            filter: $sidebar_icons_color;
+          }
+
+          span {
+            display: none;
+          }
+        }
+
+        .hover-effect {
+          opacity: 0;
+          transition: all 0.2s linear;
+          position: absolute;
+          left: 85px;
+          height: 35px;
+          line-height: 35px;
+          padding: 0px 12px;
+          background-color: $sidebar_bg_tooltip;
+          color: $sidebar_tooltip_color;
+          border-radius: 3px;
+          white-space: nowrap;
+
+          &::before {
+            content: "";
+            position: absolute;
+            left: -20px;
+            top: 9px;
+            border-top: 8px solid transparent;
+            border-right: 20px solid $sidebar_bg_tooltip;
+            border-bottom: 8px solid transparent;
+          }
+        }
+
+        &:hover .hover-effect {
+          opacity: 1;
+        }
+
+      }
+
+      .active {
+        background-color: $sidebar_bg_hover;
+        color: $sidebar_text_hover;
+      }
+    }
+  }
+
+  .sidebar-footer {
+    width: calc($min-sidebar-width - 10px);
+    position: relative;
+    bottom: 0;
+    @include flexFn(end, start, column);
+    padding: 10px 4px;
+    min-height: 100px;
+    height: 100px;
+    color: $sidebar_text_color;
+    animation-name: profileclose;
+    animation-duration: 1s;
+    animation-delay: 0.1s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+
+    @keyframes profileclose {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .profile {
+      @include flexFn(start, start, column);
+      gap: 0px 20px;
+
+      .profile-image {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        @include flexFn(center, center, row);
+
+        img {
+          width: 100%;
+        }
+      }
+
+      .profile-description {
+        @include flexFn(start, start, column);
+        margin-top: 10px;
+
+        .profile-detail {
+          display: none;
+        }
+
+        .logout-text {
+          font-size: 12px;
+          white-space: nowrap;
+          cursor: pointer;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
