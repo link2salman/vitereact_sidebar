@@ -1,5 +1,8 @@
 import React, { createContext, useState } from 'react'
+import { Routes, Route } from "react-router-dom";
+
 import Homepage from 'Pages/Homepage'
+
 
 export const UserContext = createContext();
 const App = () => {
@@ -7,7 +10,12 @@ const App = () => {
     return (
         <div>
             <UserContext.Provider value={{ theme, setTheme }}>
-                <Homepage />
+                <Routes>
+                    <Route path="/" element={
+                        <Homepage />
+                    }
+                    />
+                </Routes>
             </UserContext.Provider>
         </div>
     )
