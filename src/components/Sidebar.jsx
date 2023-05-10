@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from "react-router-dom";
 
 import ProductIcon from "Assets/icons/product.png"
@@ -10,11 +10,13 @@ import ArrowIcon from "Assets/icons/arrow.png"
 import BrandIcon from "Assets/icons/brand-logo.png"
 import BrandIcon2 from "Assets/icons/fav.ico"
 import UserImage from "Assets/images/user.jpg"
+import { UserContext } from '../App';
 
 const Sidebar = () => {
     const [toggle, setToggle] = useState(false)
+    const value = useContext(UserContext);
 
-    return <aside className={`${toggle ? "close-sidebar" : "sidebar"}`}>
+    return <aside className={`${toggle ? `close-sidebar ${value.theme}` : `sidebar ${value.theme}`}`}>
         <div className="toggle-controller" onClick={() => setToggle(!toggle)}><img src={ArrowIcon} className='toggle-icon' /></div>
         <header className='sidebar-header'><img src={toggle ? BrandIcon2 : BrandIcon} className='brand-logo' /></header>
         <menu className='sidebar-menu'>

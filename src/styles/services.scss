@@ -4,3 +4,88 @@
     align-items: $align;
     flex-direction: $direction;
 }
+
+@mixin themable($aside, $theme-name, $sidebar-bg, $toggle-bg, $toggle-icon, $icon, $icon-hover, $text-color, $text-hover, $item-hover-bg, $username-color, $tooltip: "", $tooltip-bg: "") {
+
+    .#{$aside}.#{$theme-name} {
+        background-color: $sidebar-bg;
+
+        .toggle-controller {
+            background-color: $toggle-bg;
+
+            .toggle-icon {
+                filter: $toggle-icon;
+            }
+        }
+
+
+
+        .sidebar-icon {
+            filter: $icon;
+        }
+
+        .sidebar-menu {
+            .sidebar-menu-list {
+                li {
+                    a {
+                        color: $text-color;
+                    }
+
+                    &:hover {
+                        background-color: $item-hover-bg;
+                        color: $text-hover;
+                    }
+
+                    &:hover a img {
+                        filter: $icon-hover;
+                    }
+
+                    &:hover a span {
+                        color: $text-hover;
+                    }
+                }
+            }
+
+            li.active {
+                background-color: $item-hover-bg;
+                color: $text-hover;
+
+                a {
+                    color: $text-hover;
+                }
+            }
+        }
+
+        .sidebar-footer {
+            .profile {
+                color: $text-color;
+
+                .profile-description {
+                    .profile-detail {
+                        .user-name {
+                            color: $username-color;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+
+
+    .close-sidebar.#{$theme-name} {
+        ul {
+            li {
+                .hover-effect {
+                    background-color: $tooltip-bg;
+                    color: $tooltip;
+
+                    &::before {
+                        border-right: 10px solid $tooltip-bg;
+                    }
+                }
+            }
+        }
+    }
+}

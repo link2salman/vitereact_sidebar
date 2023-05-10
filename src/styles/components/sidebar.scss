@@ -1,3 +1,9 @@
+@use "../themes/theme1" as theme1;
+@use "../themes/theme2" as theme2;
+@use "../themes/theme3" as theme3;
+@use "../themes/theme4" as theme4;
+@use "../themes/theme5" as theme5;
+
 $sidebar-width: 240px;
 $min-sidebar-width: 81px;
 
@@ -5,29 +11,26 @@ $min-sidebar-width: 81px;
   @include flexFn(start, start, column);
   width: $sidebar-width;
   height: 100vh;
-  background-color: $sidebar_background_color;
   padding: 20px 15px;
   position: relative;
   transition: all 0.3s ease-in-out;
 
   .toggle-controller {
     position: absolute;
-    top: 15px;
-    right: -13px;
-    width: 25px;
-    height: 25px;
+    top: 9px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
     overflow: hidden;
     transform: rotate(180deg);
-    background-color: $toggler_background_color;
     border-radius: 50%;
     padding: 5px;
     @include flexFn(center, center, row);
     cursor: pointer;
 
     .toggle-icon {
-      width: 20px;
-      height: 20px;
-      filter: $sidebar_icons_color;
+      width: 15px;
+      height: 15px;
     }
   }
 
@@ -75,29 +78,13 @@ $min-sidebar-width: 81px;
         border-radius: 3px;
         white-space: nowrap;
 
-        &:hover {
-          background-color: $sidebar_bg_hover;
-          color: $sidebar_text_hover;
-        }
-
-
-        &:hover a img {
-          filter: $sidebar_icons_hover;
-        }
-
-        &:hover a span {
-          color: $sidebar_text_hover;
-        }
-
         a {
           @include flexFn(start, center, row);
           gap: 0px 16px;
-          color: $sidebar_text_color;
 
           .sidebar-icon {
             width: 18px;
             height: 18px;
-            filter: $sidebar_icons_color;
           }
 
           span {
@@ -108,11 +95,6 @@ $min-sidebar-width: 81px;
         .hover-effect {
           display: none;
         }
-      }
-
-      .active {
-        background-color: $sidebar_bg_hover;
-        color: $sidebar_text_hover;
       }
     }
   }
@@ -143,7 +125,6 @@ $min-sidebar-width: 81px;
     .profile {
       @include flexFn(start, center, row);
       gap: 0px 10px;
-      color: $sidebar_text_color;
       position: absolute;
       bottom: 0px;
 
@@ -170,7 +151,6 @@ $min-sidebar-width: 81px;
 
           .user-name {
             font-size: 14px;
-            color: $sidebar_profile_name;
           }
 
           .user-role {
@@ -194,7 +174,6 @@ $min-sidebar-width: 81px;
 
 .close-sidebar {
   @include flexFn(start, start, column);
-  background-color: $sidebar_background_color;
   width: $min-sidebar-width;
   height: 100vh;
   padding: 20px 15px;
@@ -203,21 +182,19 @@ $min-sidebar-width: 81px;
 
   .toggle-controller {
     position: absolute;
-    top: 15px;
-    right: -13px;
-    width: 25px;
-    height: 25px;
+    top: 9px;
+    right: -10px;
+    width: 20px;
+    height: 20px;
     overflow: hidden;
-    background-color: $toggler_background_color;
     border-radius: 50%;
     padding: 5px;
     @include flexFn(center, center, row);
     cursor: pointer;
 
     .toggle-icon {
-      width: 20px;
-      height: 20px;
-      filter: $sidebar_icons_color;
+      width: 15px;
+      height: 15px;
     }
   }
 
@@ -264,28 +241,9 @@ $min-sidebar-width: 81px;
         width: 100%;
         border-radius: 3px;
 
-        &:hover {
-          background-color: $sidebar_bg_hover;
-          color: $sidebar_text_hover;
-        }
-
-        &:hover a img {
-          filter: $sidebar_icons_hover;
-        }
-
-        &:active {
-          background-color: $sidebar_bg_hover;
-          color: $sidebar_text_hover;
-        }
-
-        &:active a img {
-          filter: $sidebar_icons_hover;
-        }
-
         a {
           @include flexFn(start, center, row);
           gap: 0px 16px;
-          color: $sidebar_text_color;
           padding: 0px 15px;
           height: 100%;
           width: 100%;
@@ -293,7 +251,6 @@ $min-sidebar-width: 81px;
           .sidebar-icon {
             width: 18px;
             height: 18px;
-            filter: $sidebar_icons_color;
           }
 
           span {
@@ -305,22 +262,19 @@ $min-sidebar-width: 81px;
           opacity: 0;
           transition: all 0.2s linear;
           position: absolute;
-          left: 85px;
+          left: 70px;
           height: 35px;
           line-height: 35px;
           padding: 0px 12px;
-          background-color: $sidebar_bg_tooltip;
-          color: $sidebar_tooltip_color;
           border-radius: 3px;
           white-space: nowrap;
 
           &::before {
             content: "";
             position: absolute;
-            left: -20px;
+            left: -7px;
             top: 9px;
             border-top: 8px solid transparent;
-            border-right: 20px solid $sidebar_bg_tooltip;
             border-bottom: 8px solid transparent;
           }
         }
@@ -331,10 +285,6 @@ $min-sidebar-width: 81px;
 
       }
 
-      .active {
-        background-color: $sidebar_bg_hover;
-        color: $sidebar_text_hover;
-      }
     }
   }
 
@@ -345,7 +295,6 @@ $min-sidebar-width: 81px;
     min-height: 100px;
     height: 100px;
     width: 100%;
-    color: $sidebar_text_color;
     animation-name: profileclose;
     animation-duration: 1s;
     animation-delay: 0.1s;
@@ -399,3 +348,24 @@ $min-sidebar-width: 81px;
     }
   }
 }
+
+@include themable(sidebar, theme-1, theme1.$sidebar_background_color, theme1.$toggler_background_color, theme1.$sidebar_icons_color, theme1.$sidebar_icons_color, theme1.$sidebar_icons_hover, theme1.$sidebar_text_color, theme1.$sidebar_text_hover, theme1.$sidebar_bg_hover, theme1.$sidebar_profile_name );
+
+@include themable(close-sidebar, theme-1, theme1.$sidebar_background_color, theme1.$toggler_background_color, theme1.$sidebar_icons_color, theme1.$sidebar_icons_color, theme1.$sidebar_icons_hover, theme1.$sidebar_text_color, theme1.$sidebar_text_hover, theme1.$sidebar_bg_hover, theme1.$sidebar_profile_name, theme1.$sidebar_tooltip_color,
+  theme1.$sidebar_bg_tooltip );
+
+@include themable(sidebar, theme-2, theme2.$sidebar_background_color, theme2.$toggler_background_color, theme2.$sidebar_icons_color, theme2.$sidebar_icons_color, theme2.$sidebar_icons_hover, theme2.$sidebar_text_color, theme2.$sidebar_text_hover, theme2.$sidebar_bg_hover, theme2.$sidebar_profile_name );
+
+@include themable(close-sidebar, theme-2, theme2.$sidebar_background_color, theme2.$toggler_background_color, theme2.$sidebar_icons_color, theme2.$sidebar_icons_color, theme2.$sidebar_icons_hover, theme2.$sidebar_text_color, theme2.$sidebar_text_hover, theme2.$sidebar_bg_hover, theme2.$sidebar_profile_name, theme2.$sidebar_tooltip_color, theme2.$sidebar_bg_tooltip );
+
+@include themable(sidebar, theme-3, theme3.$sidebar_background_color, theme3.$toggler_background_color, theme3.$sidebar_icons_color, theme3.$sidebar_icons_color, theme3.$sidebar_icons_hover, theme3.$sidebar_text_color, theme3.$sidebar_text_hover, theme3.$sidebar_bg_hover, theme3.$sidebar_profile_name );
+
+@include themable(close-sidebar, theme-3, theme3.$sidebar_background_color, theme3.$toggler_background_color, theme3.$sidebar_icons_color, theme3.$sidebar_icons_color, theme3.$sidebar_icons_hover, theme3.$sidebar_text_color, theme3.$sidebar_text_hover, theme3.$sidebar_bg_hover, theme3.$sidebar_profile_name, theme3.$sidebar_tooltip_color, theme3.$sidebar_bg_tooltip );
+
+@include themable(sidebar, theme-4, theme4.$sidebar_background_color, theme4.$toggler_background_color, theme4.$sidebar_icons_color, theme4.$sidebar_icons_color, theme4.$sidebar_icons_hover, theme4.$sidebar_text_color, theme4.$sidebar_text_hover, theme4.$sidebar_bg_hover, theme4.$sidebar_profile_name );
+
+@include themable(close-sidebar, theme-4, theme4.$sidebar_background_color, theme4.$toggler_background_color, theme4.$sidebar_icons_color, theme4.$sidebar_icons_color, theme4.$sidebar_icons_hover, theme4.$sidebar_text_color, theme4.$sidebar_text_hover, theme4.$sidebar_bg_hover, theme4.$sidebar_profile_name, theme4.$sidebar_tooltip_color, theme4.$sidebar_bg_tooltip );
+
+@include themable(sidebar, theme-5, theme5.$sidebar_background_color, theme5.$toggler_background_color, theme5.$sidebar_icons_color, theme5.$sidebar_icons_color, theme5.$sidebar_icons_hover, theme5.$sidebar_text_color, theme5.$sidebar_text_hover, theme5.$sidebar_bg_hover, theme5.$sidebar_profile_name );
+
+@include themable(close-sidebar, theme-5, theme5.$sidebar_background_color, theme5.$toggler_background_color, theme5.$sidebar_icons_color, theme5.$sidebar_icons_color, theme5.$sidebar_icons_hover, theme5.$sidebar_text_color, theme5.$sidebar_text_hover, theme5.$sidebar_bg_hover, theme5.$sidebar_profile_name, theme5.$sidebar_tooltip_color, theme5.$sidebar_bg_tooltip );
